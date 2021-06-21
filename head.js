@@ -7,8 +7,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const head = function(array) {
-  const elem;
-  elem = array[0];
+  const elem = array[0];
   return elem;
 }
 
