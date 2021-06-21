@@ -7,6 +7,6 @@ const assertEqual = function(actual, expected) {
 };
 
 const tail = function(array) {
-  let newArray;
+  let newArray = [];
   return newArray;
 }
