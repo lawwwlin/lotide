@@ -9,7 +9,7 @@ const assertEqual = function(actual, expected) {
 const tail = function(array) {
   let newArray = array.slice(1, array.length);
   return newArray;
-}
+};
 
 // tests
 const arr1 = ["Yo Yo", "Lighthouse", "Labs"];
@@ -25,7 +25,7 @@ assertEqual(result2.length, 0);
 console.log("Tail function returns an array: " + Array.isArray(result2));
 assertEqual(result2[0], undefined); // returns undefined for empty element
 
-const arr3 =  [3];
+const arr3 = [3];
 const result3 = tail(arr2);
 assertEqual(result3.length, 0);
 assertEqual(result3[0], undefined); // returns undefined for empty element
