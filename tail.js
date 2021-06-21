@@ -14,6 +14,7 @@ const tail = function(array) {
 // tests
 const arr1 = ["Yo Yo", "Lighthouse", "Labs"];
 const result = tail(arr1);
+assertEqual(arr1[0], "Yo Yo");
 assertEqual(result.length, 2); // ensure we get back two elements
 assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
 assertEqual(result[1], "Labs"); // ensure second element is "Labs"
@@ -21,7 +22,7 @@ assertEqual(result[1], "Labs"); // ensure second element is "Labs"
 const arr2 =  [];
 const result2 = tail(arr2);
 assertEqual(result2.length, 0);
-console.log("Tail function returns an array: " + result2.isArray());
+console.log("Tail function returns an array: " + Array.isArray(result2));
 
 const arr3 =  [3];
 const result3 = tail(arr2);
