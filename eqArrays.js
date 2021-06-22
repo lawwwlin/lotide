@@ -27,6 +27,7 @@ const eqArrays = function(arr1, arr2) {
       }
     } 
     else {
+      console.log("before calling eqArray again" + arr1[i] + arr2[i]);
       eqArrays(arr1[i], arr2[i]);
     }
   }
