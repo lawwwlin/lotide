@@ -8,7 +8,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(arr1, arr2) {
-  if (!arr1.isArray() || !arr2.isArray()) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
     console.log("edge case 1");
     return false;
   }
@@ -20,7 +20,7 @@ const eqArrays = function(arr1, arr2) {
 
   for (let i = 0; i < arr1.length; i++) {
     console.log("for loop");
-    if (!arr1[i].isArray() || !arr2[i].isArray()){
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])){
       if (arr1[i] !== arr2[i]) {
         console.log("arr1: " + arr1[i] + " arr2: " + arr2[i]);
         return false;
