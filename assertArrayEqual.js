@@ -34,9 +34,9 @@ assertArrayEqual("le", ["1", "2"]); // comparing string of length 2 to array of 
 assertArrayEqual(["1", "2", "3", "4"], ["1", "2", 3]);
 assertArrayEqual(["1", "2", "3"], ["1", "2", 3]);
 assertArrayEqual([1, 2, 3], [3, 2, 1]);
-assertEqual([1, 2, 3], [1, 2, 3]); // => should PASS
-assertEqual([], []); // => should PASS
-assertEqual(["hello"], ["hello"]); // => should PASS
-assertEqual([1], [1]); // => should PASS
-assertEqual([1, "hello", 0, []], [1, "hello", 0, []]); // testing array as an element
-assertEqual([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]); // the ultimate test for recursion
+assertArrayEqual([1, 2, 3], [1, 2, 3]); // => should PASS
+assertArrayEqual([], []); // => should PASS
+assertArrayEqual(["hello"], ["hello"]); // => should PASS
+assertArrayEqual([1], [1]); // => should PASS
+assertArrayEqual([1, "hello", 0, []], [1, "hello", 0, []]); // testing array as an element
+assertArrayEqual([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]); // the ultimate test for recursion
