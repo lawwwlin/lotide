@@ -20,7 +20,7 @@ const eqArrays = function(arr1, arr2) {
 
   for (let i = 0; i < arr1.length; i++) {
     console.log("for loop");
-    if (eqArrays(arr1[i], arr2[i])){
+    if (!eqArrays(arr1[i], arr2[i])){
       return false;
     }
     if (arr1[i] !== arr2[i]) {
