@@ -1,4 +1,4 @@
-//Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match. 
+//Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
@@ -12,17 +12,16 @@ const eqArrays = function(arr1, arr2) {
     return false;
   }
 
-  if (arr1.length != arr2.length) {
+  if (arr1.length !== arr2.length) {
     return false;
   }
 
   for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])){
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
       if (arr1[i] !== arr2[i]) {
         return false;
       }
-    } 
-    else {
+    } else {
       eqArrays(arr1[i], arr2[i]);
     }
   }
@@ -41,4 +40,4 @@ assertEqual(eqArrays([], []), true); // => should PASS
 assertEqual(eqArrays(["hello"], ["hello"]), true); // => should PASS
 assertEqual(eqArrays([1], [1]), true); // => should PASS
 assertEqual(eqArrays([1, "hello", 0, []], [1, "hello", 0, []]), true); // testing array as an element
-assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true); // the ultimate test for recursion 
+assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true); // the ultimate test for recursion
