@@ -26,6 +26,11 @@ console.log("Tail function returns an array: " + Array.isArray(result2));
 assertEqual(result2[0], undefined); // returns undefined for empty element
 
 const arr3 = [3];
-const result3 = tail(arr2);
+const result3 = tail(arr3);
 assertEqual(result3.length, 0);
 assertEqual(result3[0], undefined); // returns undefined for empty element
+
+const arr4 = ["one element"];
+const result4 = tail(arr4);
+assertEqual(result4.length, 0);
+assertEqual(result4[0], undefined); // returns undefined for empty element
