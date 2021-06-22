@@ -10,14 +10,18 @@ const assertEqual = function(actual, expected) {
 const eqArrays = function(arr1, arr2) {
   if (!arr1 || !arr2) {
     return false;
+    console.log("edge case 1");
   }
 
   if (arr1.length != arr2.length) {
     return false;
+    console.log("edge case 2");
   }
 
   for (let i = 0; i < arr1.length; i++) {
+    console.log("for loop");
     if (arr1[i] !== arr2[i]) {
+      console.log("arr1: " + arr1[i] + " arr2: " + arr2[i]);
       return false;
     }
   }
