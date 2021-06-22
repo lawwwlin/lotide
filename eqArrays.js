@@ -8,24 +8,25 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(arr1, arr2) {
-  if (!arr1 || !arr2) {
-    return false;
+  if (!arr1.isArray() || !arr2.isArray()) {
     console.log("edge case 1");
+    return false;
   }
 
   if (arr1.length != arr2.length) {
-    return false;
     console.log("edge case 2");
+    return false;
   }
 
   for (let i = 0; i < arr1.length; i++) {
     console.log("for loop");
-    if (!eqArrays(arr1[i], arr2[i])){
-      return false;
-    }
-    if (arr1[i] !== arr2[i]) {
-      console.log("arr1: " + arr1[i] + " arr2: " + arr2[i]);
-      return false;
+    if (!arr1[i].isArray() || !arr2[i].isArray()){
+      if (arr1[i] !== arr2[i]) {
+        console.log("arr1: " + arr1[i] + " arr2: " + arr2[i]);
+        return false;
+      }
+    } else {
+      eqArrays(arr1[i], arr2[i]);
     }
   }
 
