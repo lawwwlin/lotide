@@ -19,14 +19,12 @@ const eqArrays = function(arr1, arr2) {
   for (let i of arr1) {
     for (let j of arr2) {
       if (i !== j) return false;
+      console.log("i:" + i + "j:" + j);
     }
   }
 
   return true;
-}
-
-
-
+};
 
 // test cases
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
