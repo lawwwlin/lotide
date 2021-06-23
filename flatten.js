@@ -34,22 +34,23 @@ const flattenArray = function(arr) {
   return arr[0];
 };
 
-const flattenArrays = function(arr) {
+const flattenArrays = function(arr, newArr) {
     for (let ele of arr) {
-      if (!Array.isArray(ele)) {
-        return ele;
-      } else {
+      if (Array.isArray(ele)) {
         flatten(ele);
+      } else {
+        newArr.push(ele);
       }
     }
+    return newArr;
 };
 
 const flatten = function(arr) {
   let newArr = [];
   if (arr.length === 1) {
-    newArr.push(flattenArray(arr));
+    newArr.push(flattenArray(arr)); // add the only element of the array to newArr
   } else {
-    newArr.push(flattenArrays(arr));
+    newArr.push(flattenArrays(arr, newArr));
   }
   return newArr;
 };
