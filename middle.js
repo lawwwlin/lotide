@@ -81,3 +81,9 @@ asserArraysEqual(result5, [2, 3]);
 
 const result6 = middle([1, 2, 3, 4, 5, 6]);
 asserArraysEqual(result6, [3, 4]);
+
+const result7 = middle(["1", "2", "3", "4", "5"]);
+asserArraysEqual(result4, ["3"]);
+
+const result8 = middle(["1", "2", "3", "4", "5", "6"]);
+asserArraysEqual(result6, ["3", "4"]);
