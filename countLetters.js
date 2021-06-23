@@ -17,7 +17,7 @@ const countLetters = function(str) {
       }
     }
   }
-  return result;
+  return results;
 };
 
 // test
