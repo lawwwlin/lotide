@@ -12,9 +12,9 @@ const countLetters = function(str) {
     console.log(s);
     if (str[s]) {
       if (results[s]) {
-        result += 1;
+        results += 1;
       } else {
-        result = 1;
+        results = 1;
       }
     }
   }
