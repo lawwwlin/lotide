@@ -21,11 +21,11 @@ const eqObjects = function(object1, object2) {
         if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
           console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
           return false;
-        } else {
-          if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
-            console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
-            return false;
-          }
+        } 
+      } else {
+        if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
+          console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
+          return false;
         }
       }
     }
