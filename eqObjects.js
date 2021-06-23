@@ -17,7 +17,7 @@ const eqObjects = function(object1, object2) {
     return false;
   } else {
     for (let i = 0; i < keys1.length; i++) {
-      if (val1[i] !== val2[keys2.find(val1)]) {
+      if (val1[i] !== val2[keys2.findIndex(key1[i])]) {
         return false;
       }
     }
