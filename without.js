@@ -28,7 +28,7 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const without = function(arr1, arr2) {
+const without = function(arr1, arr2) { // arr1 is source array, and arr2 is array of items to remove
   let arr = [];
   for (let i of arr1) {
     let sol = arr2.indexOf(i);
