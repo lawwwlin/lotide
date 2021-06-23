@@ -31,8 +31,7 @@ const asserArraysEqual = function(actual, expected) {
 // Function returns the middle element(s) of the array
 const middle = function(array) {
   let midArray = [];
-  const length = array.length;
-  const checkedArr = checkMid(length);
+  const checkedArr = checkMid(array.length);
   midArray = accessCheck(checkedArr, array);
   return midArray;
 };
