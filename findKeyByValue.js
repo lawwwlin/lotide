@@ -8,8 +8,6 @@ const assertEqual = function(actual, expected) {
 
 // It should scan the object and return the first key which contains the given value. 
 // If no key with that given value is found, then it should return undefined.
-Object.keys(object1)
-Object.values(val)
 const findKeyByValue = function(obj, val) {
   let pos = 0;
   for (const v of Object.values(obj)) { // goes through each value of obj
