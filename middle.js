@@ -30,12 +30,40 @@ const asserArraysEqual = function(actual, expected) {
 
 // Function returns the middle element(s) of the array
 const middle = function(array) {
-  let mid = [];
-    
+  let midArray = [];
+  const length = array.length;
+  const checkedArr = checkMid(length);
+  midArray = accessCheck(checkedArr);
+  return midArray;
+};
+
+const checkMid = function(length) {
+  let mid = []
+    if (length <= 2) {
+      return mid;
+    } else if (oddChecker(length)) {   // odd
+      mid.push(Math.ceil(length / 2));
+    } else {                           // even
+      mid.push(length / 2);
+      mid.push((length / 2) - 1);
+    }
   return mid;
+};
+
+const oddChecker = (n) => n % 2 === 1;
+
+const accessCheck = function (arr) {
+  let array = [];
+  for (let i of arr) {
+    array.push(i);
+  }
+  return array;
 }
 
 // TEST CODE
+const result0 = middle([]);
+asserArraysEqual(result0, []);
+
 const result1 = middle([1]);
 asserArraysEqual(result1, []);
 
