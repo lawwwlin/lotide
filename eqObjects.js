@@ -19,9 +19,11 @@ const eqObjects = function(object1, object2) {
     for (let i = 0; i < keys1.length; i++) {
       if (val1[i].isArray) {
         if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
+          console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
           return false;
         } else {
           if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
+            console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
             return false;
           }
         }
@@ -63,7 +65,6 @@ const eqObjects = function(object1, object2) {
   
     return true;
   };
-  
   
   // tests
   const ab = { a: "1", b: "2" };
