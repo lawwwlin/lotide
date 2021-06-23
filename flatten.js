@@ -30,18 +30,29 @@ const asserArraysEqual = function(actual, expected) {
 
 // Given an array with other arrays inside, it can flatten it into a single-level array.
 
-const flatten = function(arr) {
-  let newArr = [];
-    for (let ele of arr) {
-      if (!Array.isArray(ele)) {
-        newArr.push(ele);
-      } else {
-        newArr.push(flatten(ele));
-      }
-    }
-  return newArr;
+const flattenArray = function(arr) {
+  return arr[0];
 };
 
+const flattenArrays = function(arr) {
+    for (let ele of arr) {
+      if (!Array.isArray(ele)) {
+        return ele;
+      } else {
+        flatten(ele);
+      }
+    }
+};
+
+const flatten = function(arr) {
+  let newArr = [];
+  if (arr.length === 1) {
+    newArr.push(flattenArray(arr));
+  } else {
+    newArr.push(flattenArrays(arr));
+  }
+  return newArr;
+};
 
 
 // test cases
