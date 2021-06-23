@@ -34,7 +34,7 @@ const letterPositions = function(sentence) {
     if (results[i]) {
       results[i].push(i);
     } else {
-      results[i].push([]);
+      results[i].push(undefined);
     }
   }
   return results;
