@@ -34,7 +34,7 @@ const flattenArrays = function(arr) {
   let newArr = [];
     for (let ele of arr) {
       if (Array.isArray(ele)) {
-        flatten(ele);
+        newArr = newArr.concat(flatten(ele));
       } else {
         newArr.push(ele);
       }
