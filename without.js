@@ -31,10 +31,9 @@ const assertArraysEqual = function(actual, expected) {
 const without = function(arr1, arr2) {
   let arr = [];
   for (let i of arr1) {
-    for (let j of arr2) {
-      if (i !== j){
-        arr.push(i);
-      }
+    let sol = arr2.findIndex(i);
+    if (sol === -1) {
+      arr.push(i);
     }
   }
   return arr;
