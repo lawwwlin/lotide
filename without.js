@@ -44,6 +44,25 @@ const without = function(arr1, arr2) {
 
 // test cases
 const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]); // no need to capture return value for this test case
+const result1 = without(words, ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+assertArraysEqual(result1, ["world", "lighthouse"]);
+
+const arr2 = ["1", "2", "3"];
+const result2 = without(arr2, [1, 2, "3"]);
+assertArraysEqual(result2, ["1", "2"]);
+
+const booleans = [true, false, true];
+const result3 = without(booleans, true);
+assertArraysEqual(result3, [false]);
+
+const numbers = [1, 2, 3, 4, 5];
+const result4 = without(numbers, []);
+assertArraysEqual(result4, numbers);
+
+const repeated = ["hello", "hello", "hello", "hello"];
+const result5 = without(repeated, "hello");
+assertArraysEqual(result5, []);
+
+
