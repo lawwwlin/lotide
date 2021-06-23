@@ -10,13 +10,13 @@ const countLetters = function(str) {
   const results = {};
   for (const s of str) {
     console.log(s);
-    if (str[s]) {
+    //if (str[s]) {
       if (results[s]) {
         results[s] += 1;
       } else {
         results[s] = 1;
       }
-    }
+    //}
     console.log(results[s]);
   }
   return results;
