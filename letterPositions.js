@@ -31,7 +31,7 @@ const assertArraysEqual = function(actual, expected) {
 const letterPositions = function(sentence) {
   const results = {};
   let counter = 0;
-  for (const s of sentense) {
+  for (const s of sentence) {
     results[s].push(counter);
     counter++;
   }
