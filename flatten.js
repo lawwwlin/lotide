@@ -63,5 +63,5 @@ asserArraysEqual(result2, ["1", 2, 3, "4", 5, "6"]);
 console.log(result2.length, 6);
 
 const result3 = flatten([[], 2, [3, ["4", 5]], 6, ["7", true]]);
-asserArraysEqual(result2, ["", 2, 3, "4", 5, 6, "7", true]);
-console.log(result2.length, ["", 2, 3, "4", 5, 6, "7", true].length);
+asserArraysEqual(result3, ["", 2, 3, "4", 5, 6, "7", true]);
+console.log(result3.length, ["", 2, 3, "4", 5, 6, "7", true].length);
