@@ -45,7 +45,7 @@ const flattenArrays = function(arr) {
 const flatten = function(arr) {
   let newArr = [];
   if (arr.length === 0) {
-    newArr.concat(undefined);
+    newArr.push(undefined);
   } else if (arr.length === 1) {
     newArr = newArr.concat(arr); // add the only element of the array to newArr
   } else {
@@ -72,6 +72,6 @@ const result4 = flatten([1, "2", [3, ["4", [5, []]]], 6, ["7", true]]);
 asserArraysEqual(result4, [1, "2", 3, "4", 5, undefined, 6, "7", true]);
 console.log(result4.length, [1, "2", 3, "4", 5, [], 6, "7", true].length);
 
-const result5 = flatten([],[]);
+const result5 = flatten([[],[]]);
 asserArraysEqual(result5, [undefined, undefined]);
 console.log(result5.length, 2);
