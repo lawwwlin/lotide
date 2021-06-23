@@ -36,7 +36,7 @@ const flatten = function(arr) {
       if (!Array.isArray(ele)) {
         newArr.push(ele);
       } else {
-        flatten(ele);
+        newArr.push(flatten(ele));
       }
     }
   return newArr;
