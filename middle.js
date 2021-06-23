@@ -20,7 +20,7 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-const asserArraysEqual = function(actual, expected) {
+const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -61,31 +61,31 @@ const accessCheck = function(checkedArr, arrayToReturn) {
 
 // TEST CODE
 const result0 = middle([]);
-asserArraysEqual(result0, []);
+assertArraysEqual(result0, []);
 
 const result1 = middle([1]);
-asserArraysEqual(result1, []);
+assertArraysEqual(result1, []);
 
 const result2 = middle([1, 2]);
-asserArraysEqual(result2, []);
+assertArraysEqual(result2, []);
 
 const result3 = middle([1, 2, 3]);
-asserArraysEqual(result3, [2]);
+assertArraysEqual(result3, [2]);
 
 const result4 = middle([1, 2, 3, 4, 5]);
-asserArraysEqual(result4, [3]);
+assertArraysEqual(result4, [3]);
 
 const result5 = middle([1, 2, 3, 4]);
-asserArraysEqual(result5, [2, 3]);
+assertArraysEqual(result5, [2, 3]);
 
 const result6 = middle([1, 2, 3, 4, 5, 6]);
-asserArraysEqual(result6, [3, 4]);
+assertArraysEqual(result6, [3, 4]);
 
 const result7 = middle(["1", "2", "3", "4", "5"]);
-asserArraysEqual(result7, ["3"]);
+assertArraysEqual(result7, ["3"]);
 
 const result8 = middle(["1", "2", "3", "4", "5", "6"]);
-asserArraysEqual(result8, ["3", "4"]);
+assertArraysEqual(result8, ["3", "4"]);
 
 const result9 = middle(["1", "2", [], "4", "5"]);
-asserArraysEqual(result9, [[]]);
+assertArraysEqual(result9, [[]]);
