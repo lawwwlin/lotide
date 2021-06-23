@@ -17,21 +17,35 @@ const eqObjects = function(object1, object2) {
     console.log("length doesn't match");
     return false;
   } else {
-    for (let i = 0; i < keys1.length; i++) {
-      if (val1[i].isArray) {
+    for (let key of keys1) {
+      if (object1.key.isArray) {
         console.log("array comparison");
-        if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
-          console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
+        if (!eqArrays(object1.key, object2.key)) {
+          console.log(object1.key, object2.key);
           return false;
-        } 
-      } else {
+        } else 
         console.log("none array comparison");
-        if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
-          console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
+        if (object1.key !== object2.key){
           return false;
         }
       }
     }
+    // for (let i = 0; i < keys1.length; i++) {
+    //   if (val1[i].isArray) {
+    //     console.log("array comparison");
+    //     if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
+    //       console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
+    //       return false;
+    //     } 
+    //   } else {
+    //     console.log("none array comparison");
+    //     if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
+    //     //if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
+    //       console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
+    //       return false;
+    //     }
+    //   }
+    // }
   }
     return true;
   };
