@@ -45,7 +45,7 @@ const flattenArrays = function(arr) {
 const flatten = function(arr) {
   let newArr = [];
   if (arr.length === 0) {
-    newArr.push(undefined);
+    newArr.concat(undefined);
   } else if (arr.length === 1) {
     newArr = newArr.concat(arr); // add the only element of the array to newArr
   } else {
