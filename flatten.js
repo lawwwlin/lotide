@@ -1,3 +1,5 @@
+// Given an array with other arrays inside, it can flatten it into a single-level array.
+// Empty array will hold the value of undefined
 const eqArrays = function(arr1, arr2) {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
     return false;
@@ -27,8 +29,6 @@ const asserArraysEqual = function(actual, expected) {
     console.log(`❌❌❌Assertion Failed: ${actual} !== ${expected}`);
   }
 };
-
-// Given an array with other arrays inside, it can flatten it into a single-level array.
 
 const flattenArrays = function(arr) {
   let newArr = [];
@@ -71,3 +71,7 @@ console.log(result3.length, ["", 2, 3, "4", 5, 6, "7", true].length);
 const result4 = flatten([1, "2", [3, ["4", [5, []]]], 6, ["7", true]]);
 asserArraysEqual(result4, [1, "2", 3, "4", 5, undefined, 6, "7", true]);
 console.log(result4.length, [1, "2", 3, "4", 5, [], 6, "7", true].length);
+
+const result5 = flatten([],[]);
+asserArraysEqual(result5, [undefined, undefined]);
+console.log(result5.length, 2);
