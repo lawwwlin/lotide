@@ -30,12 +30,10 @@ const assertArraysEqual = function(actual, expected) {
 
 const letterPositions = function(sentence) {
   const results = {};
-  for (let i = 0; i < sentence.length; i++) {
-    if (results[i]) {
-      results[i].push(i);
-    } else {
-      results[i].push(undefined);
-    }
+  let counter = 0;
+  for (const s of sentense) {
+    results[s].push(counter);
+    counter++;
   }
   return results;
 };
