@@ -54,7 +54,7 @@ const result2 = without(arr2, [1, 2, "3"]);
 assertArraysEqual(result2, ["1", "2"]);
 
 const booleans = [true, false, true];
-const result3 = without(booleans, true);
+const result3 = without(booleans, [true]);
 assertArraysEqual(result3, [false]);
 
 const numbers = [1, 2, 3, 4, 5];
@@ -62,7 +62,7 @@ const result4 = without(numbers, []);
 assertArraysEqual(result4, numbers);
 
 const repeated = ["hello", "hello", "hello", "hello"];
-const result5 = without(repeated, "hello");
+const result5 = without(repeated, ["hello"]);
 assertArraysEqual(result5, []);
 
 
