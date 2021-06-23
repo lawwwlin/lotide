@@ -11,8 +11,6 @@ const assertEqual = function(actual, expected) {
 const eqObjects = function(object1, object2) {
   const keys1 = Object.keys(object1); // array of keys for object1
   const keys2 = Object.keys(object2); // array of keys for object2
-  const val1 = Object.values(object1); // array of values for object1
-  const val2 = Object.values(object2); // array of values for object2
   if (keys1.length !== keys2.length) {
     console.log("length doesn't match");
     return false;
@@ -25,32 +23,16 @@ const eqObjects = function(object1, object2) {
         if (!eqArrays(key1, key2)) {
           console.log(key1, key2);
           return false;
-        } else 
+        }
+      } else 
         console.log("none array comparison");
         if (key1 !== key2){
           return false;
-        }
       }
     }
-    // for (let i = 0; i < keys1.length; i++) {
-    //   if (val1[i].isArray) {
-    //     console.log("array comparison");
-    //     if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
-    //       console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
-    //       return false;
-    //     } 
-    //   } else {
-    //     console.log("none array comparison");
-    //     if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
-    //     //if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
-    //       console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
-    //       return false;
-    //     }
-    //   }
-    // }
   }
-    return true;
-  };
+  return true;
+};
   
   const findKeyByValue = function(obj, val) {
     let pos = 0;
