@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// It should scan the object and return the first key which contains the given value. 
+// It should scan the object and return the first key which contains the given value.
 // If no key with that given value is found, then it should return undefined.
 const findKeyByValue = function(obj, val) {
   let pos = 0;
@@ -17,12 +17,12 @@ const findKeyByValue = function(obj, val) {
     pos++;
   }
   return undefined;
-}
+};
 
 
 
 // tests
-const bestTVShowsByGenre = { 
+const bestTVShowsByGenre = {
   sci_fi: "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama:  "The Wire",
