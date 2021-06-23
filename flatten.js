@@ -45,4 +45,4 @@ const flatten = function(arr) {
 
 
 // test cases
-asserArraysEqual(flatten([1, 2, [3, 4], 5, [6]], [1, 2, 3, 4, 5, 6]));
+asserArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
