@@ -56,4 +56,12 @@ const flatten = function(arr) {
 // test cases
 const result = flatten([1, 2, [3, 4], 5, [6]]);
 asserArraysEqual(result, [1, 2, 3, 4, 5, 6]);
-console.log(result.length, [1, 2, 3, 4, 5, 6].length);
+console.log(result.length, 6);
+
+const result2 = flatten(["1", 2, [3, "4"], 5, ["6"]]);
+asserArraysEqual(result2, ["1", 2, 3, "4", 5, "6"]);
+console.log(result2.length, 6);
+
+const result3 = flatten([[], 2, [3, ["4", 5]], 6, ["7", true]]);
+asserArraysEqual(result2, ["", 2, 3, "4", 5, 6, "7", true]);
+console.log(result2.length, ["", 2, 3, "4", 5, 6, "7", true].length);
