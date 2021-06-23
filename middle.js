@@ -33,7 +33,7 @@ const middle = function(array) {
   let midArray = [];
   const length = array.length;
   const checkedArr = checkMid(length);
-  midArray = accessCheck(checkedArr);
+  midArray = accessCheck(checkedArr, array);
   return midArray;
 };
 
@@ -52,10 +52,10 @@ const checkMid = function(length) {
 
 const oddChecker = (n) => n % 2 === 1;
 
-const accessCheck = function (arr) {
+const accessCheck = function (checkedArr, arrayToReturn) {
   let array = [];
-  for (let i of arr) {
-    array.push(i);
+  for (let i of checkedArr) {
+    array.push(arrayToReturn[i]);
   }
   return array;
 }
