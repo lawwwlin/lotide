@@ -14,15 +14,18 @@ const eqObjects = function(object1, object2) {
   const val1 = Object.values(object1); // array of values for object1
   const val2 = Object.values(object2); // array of values for object2
   if (keys1.length !== keys2.length) {
+    console.log("length doesn't match");
     return false;
   } else {
     for (let i = 0; i < keys1.length; i++) {
       if (val1[i].isArray) {
+        console.log("array comparison");
         if (!eqArrays(val1[i], val2[keys2.indexOf(keys1[i])])) {
           console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
           return false;
         } 
       } else {
+        console.log("none array comparison");
         if (val1[i] !== val2[keys2.indexOf(keys1[i])]) {
           console.log(val1[i], val2[keys2.indexOf(keys1[i])]);
           return false;
