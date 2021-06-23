@@ -30,7 +30,12 @@ const assertArraysEqual = function(actual, expected) {
 
 const letterPositions = function(sentence) {
   const results = {};
-  // logic to update results here
+  for (let i = 0; i < sentence.length; i++) {
+    if (results[s]) {
+      results[s].push(i);
+    } else {
+      results[s].push([]);
+  }
   return results;
 };
 
@@ -47,3 +52,4 @@ assertArraysEqual(result1["s"], [8, 21]);
 assertArraysEqual(result1["e"], [9, 16, 22]);
 assertArraysEqual(result1["n"], [12]);
 assertArraysEqual(result1["a"], []);
+
