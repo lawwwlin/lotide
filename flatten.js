@@ -22,7 +22,7 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-const asserArraysEqual = function(actual, expected) {
+const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -57,21 +57,21 @@ const flatten = function(arr) {
 
 // test cases
 const result = flatten([1, 2, [3, 4], 5, [6]]);
-asserArraysEqual(result, [1, 2, 3, 4, 5, 6]);
+assertArraysEqual(result, [1, 2, 3, 4, 5, 6]);
 console.log(result.length, 6);
 
 const result2 = flatten(["1", 2, [3, "4"], 5, ["6"]]);
-asserArraysEqual(result2, ["1", 2, 3, "4", 5, "6"]);
+assertArraysEqual(result2, ["1", 2, 3, "4", 5, "6"]);
 console.log(result2.length, 6);
 
 const result3 = flatten([[], 2, [3, ["4", 5]], 6, ["7", true]]);
-asserArraysEqual(result3, [undefined, 2, 3, "4", 5, 6, "7", true]);
+assertArraysEqual(result3, [undefined, 2, 3, "4", 5, 6, "7", true]);
 console.log(result3.length, ["", 2, 3, "4", 5, 6, "7", true].length);
 
 const result4 = flatten([1, "2", [3, ["4", [5, []]]], 6, ["7", true]]);
-asserArraysEqual(result4, [1, "2", 3, "4", 5, undefined, 6, "7", true]);
+assertArraysEqual(result4, [1, "2", 3, "4", 5, undefined, 6, "7", true]);
 console.log(result4.length, [1, "2", 3, "4", 5, [], 6, "7", true].length);
 
 const result5 = flatten([[],[]]);
-asserArraysEqual(result5, [undefined, undefined]);
+assertArraysEqual(result5, [undefined, undefined]);
 console.log(result5.length, 2);
