@@ -42,10 +42,10 @@ const checkMid = function(length) {
     if (length <= 2) {
       return mid;
     } else if (oddChecker(length)) {   // odd
-      mid.push(Math.ceil(length / 2));
+      mid.push(Math.floor(length / 2));
     } else {                           // even
-      mid.push(length / 2);
       mid.push((length / 2) - 1);
+      mid.push(length / 2);
     }
   return mid;
 };
