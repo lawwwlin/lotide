@@ -65,9 +65,9 @@ asserArraysEqual(result2, ["1", 2, 3, "4", 5, "6"]);
 console.log(result2.length, 6);
 
 const result3 = flatten([[], 2, [3, ["4", 5]], 6, ["7", true]]);
-asserArraysEqual(result3, ["", 2, 3, "4", 5, 6, "7", true]);
+asserArraysEqual(result3, [undefined, 2, 3, "4", 5, 6, "7", true]);
 console.log(result3.length, ["", 2, 3, "4", 5, 6, "7", true].length);
 
 const result4 = flatten([1, "2", [3, ["4", [5, []]]], 6, ["7", true]]);
-asserArraysEqual(result4, [1, "2", 3, "4", 5, [], 6, "7", true]);
+asserArraysEqual(result4, [1, "2", 3, "4", 5, undefined, 6, "7", true]);
 console.log(result4.length, [1, "2", 3, "4", 5, [], 6, "7", true].length);
