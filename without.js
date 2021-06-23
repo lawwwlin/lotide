@@ -33,7 +33,7 @@ const without = function(arr1, arr2) {
   for (let i of arr1) {
     for (let j of arr2) {
       if (i !== j){
-        Array.push(i);
+        arr.push(i);
       }
     }
   }
