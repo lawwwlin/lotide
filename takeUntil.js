@@ -36,10 +36,10 @@ const takeUntil = (array, callback) => {
 
 const loopPushUntil = (array, arrToPush, callback) => {
   for (const element of array) {
-    if (!callback(element)) {
-      arrToPush.push(element)
-    } else {
+    if (callback(element)) {
       break;
+    } else {
+      arrToPush.push(element)
     }
   }
 }
