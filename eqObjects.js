@@ -16,17 +16,18 @@ const eqObjects = function(object1, object2) {
     return false;
   } else {
     for (let key of keys1) {
-      const key1 = object1[key];
-      const key2 = object2[key];
-      if (key1.isArray) {
+      const value1 = object1[key];
+      const value2 = object2[key];
+      console.log(value1, value2);
+      if (value1.isArray) {
         console.log("array comparison");
-        if (!eqArrays(key1, key2)) {
-          console.log(key1, key2);
+        if (!eqArrays(value1, value2)) {
+          console.log(value1, value2);
           return false;
         }
       } else 
         console.log("none array comparison");
-        if (key1 !== key2){
+        if (value1 !== value2){
           return false;
       }
     }
