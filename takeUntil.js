@@ -30,13 +30,13 @@ const assertArraysEqual = function(actual, expected) {
 
 const takeUntil = (array, callback) => {
   const arr = [];
-  array.forEach(element => {
+  for (const element of array) {
     if (!callback(element)) {
       arr.push(element)
     } else {
       break;
     }
-  });
+  }
   return arr;
 };
 
