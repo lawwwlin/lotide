@@ -9,22 +9,26 @@ const assertEqual = function(actual, expected) {
 const findKey = (obj, callback) => {
   let solKey = "";
   const keys = Object.keys(obj);
-  const keysUntil = takeUntil(keys, callback);
-  const keyPos = keysUntil.length - 1;
+  const keysUntil = takeUntil(keys, callback); // takeUntil will return the array BEFORE callback is true
+  const keyPos = keysUntil.length; // so keyPos should be one index after
   solKey = Object.keys(obj)[keyPos];
   return solKey;
 };
 
 const takeUntil = (array, callback) => {
   const arr = [];
+  loopPushUntil(array, arr, callback);
+  return arr;
+};
+
+const loopPushUntil = (array, arrToPush, callback) => {
   for (const element of array) {
-    if (!callback(element)) {
-      arr.push(element)
-    } else {
+    if (callback(element)) {
       break;
+    } else {
+      arrToPush.push(element);
     }
   }
-  return arr;
 };
 
 
