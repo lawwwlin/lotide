@@ -57,3 +57,7 @@ const results3 = takeUntil(data2, x => x === '');
 console.log(results3);
 assertArraysEqual(results3, ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"])
 
+const results4 = takeUntil(data2, x => x === 'to');
+console.log(results4);
+assertArraysEqual(results3, ["I've", "been", "to"])
+
