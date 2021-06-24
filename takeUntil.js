@@ -39,7 +39,7 @@ const loopPushUntil = (array, arrToPush, callback) => {
     if (!callback(element)) {
       arrToPush.push(element)
     } else {
-      Process.exit();
+      process.exit();
     }
   }
 }
