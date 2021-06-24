@@ -10,6 +10,7 @@ const findKey = (obj, callback) => {
   let solKey = "";
   const keys = Object.keys(obj);
   const keysUntil = takeUntil(keys, callback); // takeUntil will return the array BEFORE callback is true
+  console.log(keysUntil);
   const keyPos = keysUntil.length; // so keyPos should be one index after
   solKey = Object.keys(obj)[keyPos];
   return solKey;
