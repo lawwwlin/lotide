@@ -9,12 +9,22 @@ const assertEqual = function(actual, expected) {
 const findKey = (obj, callback) => {
   const solKey = "";
   const keys = Object.keys(obj);
-  for (const key of keys) {
-    if (callback(key)) {
-      solKey = "found it";
+  const keysUntil = takeUntil(keys, callback);
+  const keyPos = keysUntil.length - 1;
+  solKey = Object.keys(obj)[keyPos];
+  return solKey;
+};
+
+const takeUntil = (array, callback) => {
+  const arr = [];
+  for (const element of array) {
+    if (!callback(element)) {
+      arr.push(element)
+    } else {
+      break;
     }
   }
-  return solKey;
+  return arr;
 };
 
 
