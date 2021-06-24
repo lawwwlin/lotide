@@ -34,7 +34,7 @@ const takeUntil = (array, callback) => {
     if (!callback(element)) {
       arr.push(element)
     } else {
-      process.exit();
+      break;
     }
   });
   return arr;
