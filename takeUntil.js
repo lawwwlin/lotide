@@ -30,15 +30,19 @@ const assertArraysEqual = function(actual, expected) {
 
 const takeUntil = (array, callback) => {
   const arr = [];
-  for (const element of array) {
-    if (!callback(element)) {
-      arr.push(element)
-    } else {
-      break;
-    }
-  }
+  loopPushUntil(array, arr, callback);
   return arr;
 };
+
+const loopPushUntil = (array, arrToPush, callback) => {
+  for (const element of array) {
+    if (!callback(element)) {
+      arrToPush.push(element)
+    } else {
+      Process.exit();
+    }
+  }
+}
 
 // tests
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
