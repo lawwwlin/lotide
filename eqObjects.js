@@ -12,21 +12,17 @@ const eqObjects = function(object1, object2) {
   const keys1 = Object.keys(object1); // array of keys for object1
   const keys2 = Object.keys(object2); // array of keys for object2
   if (keys1.length !== keys2.length) {
-    console.log("length doesn't match");
     return false;
   } else {
     for (let key of keys1) {
       const value1 = object1[key];
       const value2 = object2[key];
-      console.log(value1, value2);
       if (Array.isArray(value1)) {
-        console.log("array comparison");
         if (!eqArrays(value1, value2)) {
           console.log(value1, value2);
           return false;
         }
       } else {
-        console.log("none array comparison");
         if (value1 !== value2) {
           return false;
         }
