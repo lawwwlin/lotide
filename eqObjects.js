@@ -19,7 +19,6 @@ const eqObjects = function(object1, object2) {
       const value2 = object2[key];
       if (Array.isArray(value1)) {
         if (!eqArrays(value1, value2)) {
-          console.log(value1, value2);
           return false;
         }
       } else {
