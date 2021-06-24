@@ -19,7 +19,7 @@ const eqObjects = function(object1, object2) {
       const value1 = object1[key];
       const value2 = object2[key];
       console.log(value1, value2);
-      if (value1.isArray) {
+      if (Array.isArray(value1)) {
         console.log("array comparison");
         if (!eqArrays(value1, value2)) {
           console.log(value1, value2);
