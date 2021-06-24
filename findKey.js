@@ -13,6 +13,7 @@ const findKey = (obj, callback) => {
   console.log(valuesUntil);
   const keyPos = valuesUntil.length; // so keyPos should be one index after
   key = Object.keys(obj)[keyPos];
+  console.log("key" + key);
   return key;
 };
 
