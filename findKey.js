@@ -9,12 +9,10 @@ const assertEqual = function(actual, expected) {
 const findKey = (obj, callback) => {
   let key = "";
   const values = Object.values(obj);
-  const valuesUntil = takeUntil(values, callback); // takeUntil will return the array BEFORE callback is true
-  console.log(valuesUntil);
-  const keyPos = valuesUntil.length; // so keyPos should be one index after
-  console.log("keyPos " + keyPos);
+  const valuesUntil = takeUntil(values, callback); // takeUntil will return the array BEFORE callBack is true
+  const keyPos = valuesUntil.length; // so keyPos should be one index after 
+  // takeUntil returns full array if callBack is all false, so keyPos will be out of obj, which will result in undefined
   key = Object.keys(obj)[keyPos];
-  console.log("key " + key);
   return key;
 };
 
