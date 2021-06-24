@@ -39,10 +39,10 @@ const loopPushUntil = (array, arrToPush, callback) => {
     if (callback(element)) {
       break;
     } else {
-      arrToPush.push(element)
+      arrToPush.push(element);
     }
   }
-}
+};
 
 // tests
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
