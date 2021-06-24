@@ -40,8 +40,8 @@ const map = (array, callback) => {
 const words = ["ground", "control", "to", "major", "tom"];
 const results1 = map(words, word => word[0]);
 console.log(results1);
-assertArraysEqual(result1, [ 'g', 'c', 't', 'm', 't' ]);
+assertArraysEqual(results1, [ 'g', 'c', 't', 'm', 't' ]);
 
-const result2 = map(words, word => word * 2);
+const results2 = map(words, word => word * 2);
 console.log(results2);
-assertArraysEqual(result2, words);
+assertArraysEqual(results2, words);
