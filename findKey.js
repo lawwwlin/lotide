@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKey = (obj, callback) => {
-  const solKey = "";
+  let solKey = "";
   const keys = Object.keys(obj);
   const keysUntil = takeUntil(keys, callback);
   const keyPos = keysUntil.length - 1;
