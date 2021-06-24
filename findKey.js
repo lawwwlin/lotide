@@ -10,7 +10,7 @@ const findKey = (obj, callback) => {
   const key = "";
   const keys = Object.keys(obj);
   for (const key of keys) {
-    if (callback()) {
+    if (callback(key)) {
       key = "found it";
     }
   }
