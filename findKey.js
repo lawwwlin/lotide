@@ -7,13 +7,13 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKey = (obj, callback) => {
-  let solKey = "";
-  const keys = Object.keys(obj);
-  const keysUntil = takeUntil(keys, callback); // takeUntil will return the array BEFORE callback is true
-  console.log(keysUntil);
-  const keyPos = keysUntil.length; // so keyPos should be one index after
+  let key = "";
+  const values = Object.values(obj);
+  const valuesUntil = takeUntil(keys, callback); // takeUntil will return the array BEFORE callback is true
+  console.log(valuesUntil);
+  const keyPos = valuesUntil.length; // so keyPos should be one index after
   solKey = Object.keys(obj)[keyPos];
-  return solKey;
+  return key;
 };
 
 const takeUntil = (array, callback) => {
