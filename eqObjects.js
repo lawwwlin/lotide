@@ -6,6 +6,31 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+const eqArrays = function(arr1, arr2) {
+  let ans = true;
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    ans = false;
+    return ans;
+  }
+
+  if (arr1.length !== arr2.length) {
+    ans = false;
+    return ans;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) { // any of arr1[i] or arr2[i] is not an array
+      if (arr1[i] !== arr2[i]) {
+        ans = false;
+        return ans;
+      }
+    } else { // they are both arrays
+      ans = eqArrays(arr1[i], arr2[i]);
+    }
+  }
+  return ans;
+};
+
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
@@ -31,28 +56,6 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-const eqArrays = function(arr1, arr2) {
-  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    return false;
-  }
-
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-
-  for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
-    } else {
-      eqArrays(arr1[i], arr2[i]);
-    }
-  }
-
-  return true;
-};
-
 // tests
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
@@ -67,3 +70,19 @@ assertEqual(eqObjects(cd, dc), true); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false); // => false
+
+const ab2 = { a: ["1", 2, true], b: "2" };
+const ba2 = { b: "2", a: ["1", 2, true] };
+assertEqual(eqObjects(ab2, ba2), true); // => true
+
+const ab3 = { a: ["1", 2, false], b: "2" };
+const ba3 = { b: "2", a: ["1", 2, true] };
+assertEqual(eqObjects(ab2, ba2), false); // => false
+
+
+// assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);  // => true
+
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) // => false
+
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) // => false
+
