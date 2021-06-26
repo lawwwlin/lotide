@@ -8,25 +8,28 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(arr1, arr2) {
+  let ans = true;
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    return false;
+    ans = false;
+    return ans;
   }
 
   if (arr1.length !== arr2.length) {
-    return false;
+    ans = false;
+    return ans;
   }
 
   for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) { // any of arr1[i] or arr2[i] is not an array
       if (arr1[i] !== arr2[i]) {
-        return false;
+        ans = false;
+        return ans;
       }
-    } else {
-      eqArrays(arr1[i], arr2[i]);
+    } else { // they are both arrays
+      ans = eqArrays(arr1[i], arr2[i]);
     }
   }
-
-  return true;
+  return ans;
 };
 
 // test cases
@@ -40,4 +43,20 @@ assertEqual(eqArrays([], []), true); // => should PASS
 assertEqual(eqArrays(["hello"], ["hello"]), true); // => should PASS
 assertEqual(eqArrays([1], [1]), true); // => should PASS
 assertEqual(eqArrays([1, "hello", 0, []], [1, "hello", 0, []]), true); // testing array as an element
-assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true); // the ultimate test for recursion
+assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true); 
+assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, [[1, [2, "no"], 3]]]], [1, "hello", 0, [], [1, "hello", 3, [1, [2], 3]]]), false);
+const array1 = [[[[[[[[[1]]]]]]]]];
+const array2 = [[[[[[[[["1"]]]]]]]]];
+assertEqual(eqArrays(array1, array2), false);
+const array3 = [[[[[[[[["are they equal"]]]]]]]]];
+const array4 = [[[[[[[[["are they equal"]]]]]]]]];
+assertEqual(eqArrays(array3, array4), true);
+
+// object tests: stil can't compare objects
+// const person1 = {name: "Alice", age: 20};
+// const person2 = {name: "Bob", age: 20};
+// const person3 = {name: "Alice", age: 21};
+// const array5 = [person1, person2];
+// const array6 = [person1, person3];
+// assertEqual(eqArrays(array5, array6), false);
+// assertEqual(eqArrays(array5, [{name: "Alice", age: 20}, {name: "Bob", age: 20}]), true);
