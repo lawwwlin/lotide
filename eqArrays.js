@@ -52,6 +52,14 @@ const array3 = [[[[[[[[["are they equal"]]]]]]]]];
 const array4 = [[[[[[[[["are they equal"]]]]]]]]];
 assertEqual(eqArrays(array3, array4), true);
 
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true) // => true
+
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false) // => false
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false) // => false
+
+
+
+
 // object tests: stil can't compare objects
 // const person1 = {name: "Alice", age: 20};
 // const person2 = {name: "Bob", age: 20};
