@@ -1,25 +1,28 @@
 // Given an array with other arrays inside, it can flatten it into a single-level array.
 // Empty array will hold the value of undefined
 const eqArrays = function(arr1, arr2) {
+  let ans = true;
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    return false;
+    ans = false;
+    return ans;
   }
 
   if (arr1.length !== arr2.length) {
-    return false;
+    ans = false;
+    return ans;
   }
 
   for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) { // any of arr1[i] or arr2[i] is not an array
       if (arr1[i] !== arr2[i]) {
-        return false;
+        ans = false;
+        return ans;
       }
-    } else {
-      eqArrays(arr1[i], arr2[i]);
+    } else { // they are both arrays
+      ans = eqArrays(arr1[i], arr2[i]);
     }
   }
-
-  return true;
+  return ans;
 };
 
 const assertArraysEqual = function(actual, expected) {
