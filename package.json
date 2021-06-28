@@ -3,7 +3,7 @@
     "chai": "^4.3.4",
     "mocha": "^9.0.1"
   },
-  "name": "lotide",
+  "name": "@lawwwlin/lotide",
   "version": "1.0.0",
   "main": "assertArraysEqual.js",
   "directories": {
@@ -100,11 +100,11 @@
     "type": "git",
     "url": "git+https://github.com/lawwwlin/lotide.git"
   },
-  "author": "",
+  "author": "Lawrence Lin <lawwwlin@gmail.comS>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lawwwlin/lotide/issues"
   },
   "homepage": "https://github.com/lawwwlin/lotide#readme",
-  "description": ""
+  "description": "A student project based on Lodash library"
 }
