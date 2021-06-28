@@ -32,7 +32,7 @@ describe("", () => {
   });
   it ("", () => {
     const result7 = middle(["1", "2", "3", "4", "5"]);
-    assert.deepEqual(result7, ["7"]);
+    assert.deepEqual(result7, ["3"]);
   });
   it ("", () => {
     const result8 = middle(["1", "2", "3", "4", "5", "6"]);
