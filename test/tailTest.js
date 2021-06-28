@@ -1,25 +1,25 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const tail = require('../tail');
 
-const arr1 = ["Yo Yo", "Lighthouse", "Labs"];
-const result = tail(arr1);
-assertEqual(arr1[0], "Yo Yo");
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
-
-const arr2 =  [];
-const result2 = tail(arr2);
-assertEqual(result2.length, 0);
-console.log("Tail function returns an array: " + Array.isArray(result2));
-assertEqual(result2[0], undefined); // returns undefined for empty element
-
-const arr3 = [3];
-const result3 = tail(arr3);
-assertEqual(result3.length, 0);
-assertEqual(result3[0], undefined); // returns undefined for empty element
-
-const arr4 = ["one element"];
-const result4 = tail(arr4);
-assertEqual(result4.length, 0);
-assertEqual(result4[0], undefined); // returns undefined for empty element
+describe("tail", () => {
+  it ("returns ['Lighthouse', 'Labs'] for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    const arr1 = ["Yo Yo", "Lighthouse", "Labs"];
+    const result1 = tail(arr1);
+    assert.deepEqual(result1, ['Lighthouse', 'Labs']);
+  });
+  it ("returns [] for []", () => {
+    const arr2 =  [];
+    const result2 = tail(arr2);
+    assert.deepEqual(result2, []);
+  });
+  it ("returns [] for [3]", () => {
+    const arr3 = [3];
+    const result3 = tail(arr3);
+    assert.deepEqual(result3, []);
+  });
+  it ("returns [] for ['one element']", () => {
+    const arr4 = ["one element"];
+    const result4 = tail(arr4);
+    assert.deepEqual(result4, []);
+  });
+});
