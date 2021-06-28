@@ -10,11 +10,11 @@ describe("#head", () => {
     assert.strictEqual(head(['5']), '5'); 
   });
 
-  it("returns '5' for ['5']", () => {
+  it("returns 'Hello' for ['Hello', 'Lighthouse', 'Labs']", () => {
     assert.strictEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello"); 
   });
 
-  it("returns '5' for ['5']", () => {
+  it("returns undefined for []", () => {
     assert.strictEqual(head([]), undefined); 
   });
 });
