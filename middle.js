@@ -1,36 +1,3 @@
-const eqArrays = function(arr1, arr2) {
-  let ans = true;
-  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    ans = false;
-    return ans;
-  }
-
-  if (arr1.length !== arr2.length) {
-    ans = false;
-    return ans;
-  }
-
-  for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) { // any of arr1[i] or arr2[i] is not an array
-      if (arr1[i] !== arr2[i]) {
-        ans = false;
-        return ans;
-      }
-    } else { // they are both arrays
-      ans = eqArrays(arr1[i], arr2[i]);
-    }
-  }
-  return ans;
-};
-
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌❌❌Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
 // Function returns the middle element(s) of the array
 const middle = function(array) {
   let midArray = [];
@@ -62,33 +29,4 @@ const accessCheck = function(checkedArr, arrayToReturn) {
   return array;
 };
 
-// TEST CODE
-const result0 = middle([]);
-assertArraysEqual(result0, []);
-
-const result1 = middle([1]);
-assertArraysEqual(result1, []);
-
-const result2 = middle([1, 2]);
-assertArraysEqual(result2, []);
-
-const result3 = middle([1, 2, 3]);
-assertArraysEqual(result3, [2]);
-
-const result4 = middle([1, 2, 3, 4, 5]);
-assertArraysEqual(result4, [3]);
-
-const result5 = middle([1, 2, 3, 4]);
-assertArraysEqual(result5, [2, 3]);
-
-const result6 = middle([1, 2, 3, 4, 5, 6]);
-assertArraysEqual(result6, [3, 4]);
-
-const result7 = middle(["1", "2", "3", "4", "5"]);
-assertArraysEqual(result7, ["3"]);
-
-const result8 = middle(["1", "2", "3", "4", "5", "6"]);
-assertArraysEqual(result8, ["3", "4"]);
-
-const result9 = middle(["1", "2", [], "4", "5"]);
-assertArraysEqual(result9, [[]]);
+module.exports = middle;
