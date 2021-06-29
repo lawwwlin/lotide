@@ -1,7 +1,7 @@
 const middle = require('../middle');
 const assert = require('chai').assert;
 
-describe("", () => {
+describe("middle", () => {
   it ("should be [], given []", () => {
     const result0 = middle([]);
     assert.deepEqual(result0, []);
