@@ -1,30 +1,65 @@
 const assertEqual = require("../assertEqual");
 const eqArrays = require('../eqArrays');
+const assert = require('chai').assert;
 
-// test cases
-console.log("This should be false: " + eqArrays(undefined, ["1", "2", 3])); // testing edge case 1
-console.log("This should be false: " + eqArrays("le", ["1", "2"])); // comparing string of length 2 to array of length 2 (testing edge case 2)
-console.log("This should be false: " + eqArrays(["1", "2", "3", "4"], ["1", "2", 3]));
-console.log("This should be false: " + eqArrays(["1", "2", "3"], ["1", "2", 3]));
-console.log("This should be false: " + eqArrays([1, 2, 3], [3, 2, 1]));
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([], []), true); // => should PASS
-assertEqual(eqArrays(["hello"], ["hello"]), true); // => should PASS
-assertEqual(eqArrays([1], [1]), true); // => should PASS
-assertEqual(eqArrays([1, "hello", 0, []], [1, "hello", 0, []]), true); // testing array as an element
-assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true); 
-assertEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, [[1, [2, "no"], 3]]]], [1, "hello", 0, [], [1, "hello", 3, [1, [2], 3]]]), false);
-const array1 = [[[[[[[[[1]]]]]]]]];
-const array2 = [[[[[[[[["1"]]]]]]]]];
-assertEqual(eqArrays(array1, array2), false);
-const array3 = [[[[[[[[["are they equal"]]]]]]]]];
-const array4 = [[[[[[[[["are they equal"]]]]]]]]];
-assertEqual(eqArrays(array3, array4), true);
+describe('eqArray', () => {
+  it('should be false, given eqArrays(undefined, ["1", "2", 3])', () => {
+    assert.deepEqual(eqArrays(undefined, ["1", "2", 3]), false);
+  });
+  it('should be false, given eqArrays("le", ["1", "2"])', () => {
+    assert.deepEqual(eqArrays("le", ["1", "2"]), false);
+  });
+  it('should be false, given eqArrays(["1", "2", "3", "4"], ["1", "2", 3])', () => {
+    assert.deepEqual(eqArrays(["1", "2", "3", "4"], ["1", "2", 3]), false);
+  });
+  it('should be false, given eqArrays(["1", "2", "3"], ["1", "2", 3])', () => {
+    assert.deepEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+  });
+  it('should be false, given eqArrays([1, 2, 3], [3, 2, 1])', () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+  });
+  it('should be true, given eqArrays([1, 2, 3], [1, 2, 3])', () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
+  it('should be true, given eqArrays([], [])', () => {
+    assert.deepEqual(eqArrays([], []), true);
+  });
+  it('should be true, given eqArrays(["hello"], ["hello"])', () => {
+    assert.deepEqual(eqArrays(["hello"], ["hello"]), true);
+  });
+  it('should be true, given eqArrays([1], [1])', () => {
+    assert.deepEqual(eqArrays([1], [1]), true);
+  });
+  it('should be true, given eqArrays([1, "hello", 0, []], [1, "hello", 0, []])', () => {
+    assert.deepEqual(eqArrays([1, "hello", 0, []], [1, "hello", 0, []]), true);
+  });
+  it('should be true, given eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]])', () => {
+    assert.deepEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, []]], [1, "hello", 0, [], [1, "hello", 3, []]]), true);
+  });
+  it('should be true, given eqArrays([1, "hello", 0, [], [1, "hello", 3, [[1, [2, "no"], 3]]]], [1, "hello", 0, [], [1, "hello", 3, [1, [2], 3]]])', () => {
+    assert.deepEqual(eqArrays([1, "hello", 0, [], [1, "hello", 3, [[1, [2, "no"], 3]]]], [1, "hello", 0, [], [1, "hello", 3, [1, [2], 3]]]), false);
+  });
+  it('should be false, given eqArrays([[[[[[[[[1]]]]]]]]], [[[[[[[[["1"]]]]]]]]])', () => {
+    const array1 = [[[[[[[[[1]]]]]]]]];
+    const array2 = [[[[[[[[["1"]]]]]]]]];
+    assert.deepEqual(eqArrays(array1, array2), false);
+  });
+  it('should be true, given eqArrays([[[[[[[[["are they equal"]]]]]]]]], [[[[[[[[["are they equal"]]]]]]]]])', () => {
+    const array3 = [[[[[[[[["are they equal"]]]]]]]]];
+    const array4 = [[[[[[[[["are they equal"]]]]]]]]];
+    assert.deepEqual(eqArrays(array3, array4), true);
+  });
+  it('should be true, given eqArrays([[2, 3], [4]], [[2, 3], [4]])', () => {
+    assert.deepEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true);
+  });
+  it('should be false, given eqArrays([[2, 3], [4]], [[2, 3], [4, 5]])', () => {
+    assert.deepEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false);
+  });
+  it('should be false, given eqArrays([[2, 3], [4]], [[2, 3], 4])', () => {
+    assert.deepEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);
+  });
 
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true) // => true
-
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false) // => false
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false) // => false
+});
 
 // object tests: stil can't compare objects
 // const person1 = {name: "Alice", age: 20};
