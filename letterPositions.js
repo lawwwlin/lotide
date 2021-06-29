@@ -1,36 +1,3 @@
-const eqArrays = function(arr1, arr2) {
-  let ans = true;
-  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    ans = false;
-    return ans;
-  }
-
-  if (arr1.length !== arr2.length) {
-    ans = false;
-    return ans;
-  }
-
-  for (let i = 0; i < arr1.length; i++) {
-    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) { // any of arr1[i] or arr2[i] is not an array
-      if (arr1[i] !== arr2[i]) {
-        ans = false;
-        return ans;
-      }
-    } else { // they are both arrays
-      ans = eqArrays(arr1[i], arr2[i]);
-    }
-  }
-  return ans;
-};
-
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌❌❌Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
 const letterPositions = function(sentence) {
   const results = {};
   let counter = 0;
@@ -45,18 +12,4 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-//tests
-const result1 = letterPositions("lighthouse in the house");
-assertArraysEqual(letterPositions("hello").e, [1]);
-assertArraysEqual(result1["l"], [0]);
-assertArraysEqual(result1["i"], [1, 11]);
-assertArraysEqual(result1["g"], [2]);
-assertArraysEqual(result1["h"], [3, 5, 15, 18]);
-assertArraysEqual(result1["t"], [4, 14]);
-assertArraysEqual(result1["o"], [6, 19]);
-assertArraysEqual(result1["u"], [7, 20]);
-assertArraysEqual(result1["s"], [8, 21]);
-assertArraysEqual(result1["e"], [9, 16, 22]);
-assertArraysEqual(result1["n"], [12]);
-// assertArraysEqual(result1["a"], undefined); result1["a"] is undefined, but eqArrays only checks arrays, so it will return false
-
+module.exports = letterPositions;
