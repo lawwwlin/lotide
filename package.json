@@ -4,7 +4,7 @@
     "mocha": "^9.0.1"
   },
   "name": "@lawwwlin/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
